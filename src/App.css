@@ -1,38 +1,112 @@
+@import url('https://fonts.googleapis.com/css2?family=Dela+Gothic+One&display=swap');
+
+:root {
+  --purple: #6C79D9;
+  --pink: #F696BB;
+  --blue: #98D8F4;
+  --red: #FF3E45;
+  --yellow: #FFB939;
+  --orange: #FF806D;
+  --body: #313857;
+  --white: #fff;
+}
+
+body {
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+}
+
 .App {
   text-align: center;
+  height: 100vh;
+  width: 100vw;
+  font-family: 'Dela Gothic One' !important;
+  color: white;
+  padding: 3rem;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.container {
+  width: 100%;
+  height: 100%;
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
+h1 {
+  text-align: left;
+  font-size: 4.5rem;
+  line-height: 100%;
+  position: absolute;
+  opacity: 0;
+  width: 92%;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+h1 span {
+  text-decoration: underline;
 }
+
+h2 {
+  color: #313857;
+  font-size: 3rem;
+  text-align: left;
+  line-height: 100%;
+  position: absolute;
+  opacity: 0;
+  align-self: center;
+}
+
+.age.App {
+  color: var(--white);
+  background-color: var(--purple); }
+.age h2 {
+  color: var(--body); }
+
+.smart.App {
+  color: var(--body);
+  background-color: var(--pink); }
+.smart h2 {
+  color: var(--white); }
+.smart .present2 .color {
+  fill: var(--blue) }
+
+.facebook.App {
+  color: var(--body);
+  background-color: var(--blue); }
+.facebook h2 {
+  color: var(--purple); }
+.facebook .present2 .color {
+  fill: var(--orange) }
+.facebook .present1 .color {
+  fill: var(--yellow) }
+
+.old.App {
+  color: var(--white);
+  background-color: var(--red); }
+.old h2 {
+  color: var(--body); }
+.old .present2 .color {
+  fill: var(--pink) }
+.old .present1 .color {
+  fill: var(--yellow) }
+
+.amazing.App {
+  color: var(--body);
+  background-color: var(--yellow); }
+.amazing h2 {
+  color: var(--red); }
+.amazing .present2 .color {
+  fill: var(--orange) }
+.amazing .present1 .color {
+  fill: var(--purple) }
+
+.another.App {
+  color: var(--body);
+  background-color: var(--orange); }
+.another h2 {
+  color: var(--white); }
+.another .present2 .color {
+  fill: var(--blue) }
+.another .present1 .color {
+  fill: var(--purple) }

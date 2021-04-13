@@ -1,25 +1,144 @@
-import logo from './logo.svg';
+import 'minireset.css';
+import { motion } from "framer-motion"
+
+import Frame from './components/Frame'
 import './App.css';
 
-function App() {
+function App({ to, cc, compliment }) {
+  const containerVariants = {
+    active: {
+      transition: {
+        staggerChildren: 3,
+      }
+    },
+    inactive: {
+      transition: { duration: 2 }
+    }
+  }
+
+  const childVariants = {
+    active: {
+      x: [1500, 0, 0, -1500],
+      opacity: [0, 1, 1, 0],
+      transition: {
+        duration: 3,
+        ease: "easeInOut",
+        times: [0, 0.3, 0.8, 1],
+      }
+    }
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+    <div className={`App ${compliment.theme}`}>
+      <Frame>
+        <motion.div
+          variants={containerVariants}
+          animate="active"
+          className="container"
         >
-          Learn React
-        </a>
-      </header>
+          <motion.h1
+            variants={childVariants}
+          >
+            Dear <span>{to.name}</span>,
+          </motion.h1>
+          {compliment.lines.map((line) => (
+            <motion.h1
+              variants={childVariants}
+            >
+              {line}
+            </motion.h1>
+          ))}
+          <motion.h1
+            variants={childVariants}
+          >
+            From,<br/>
+            <span>{cc.name}</span>.
+          </motion.h1>
+          <motion.h2
+            variants={childVariants}
+          >
+            Backhanded<br />Birthday Cards
+          </motion.h2>
+        </motion.div>
+      </Frame>
     </div>
   );
 }
 
 export default App;
+
+App.defaultProps = {
+  to: {
+    name: 'James',
+    email: 'james@outfit.io'
+  },
+  cc: {
+    name: 'Georgia',
+    email: 'james.rp.lee@gmail.com'
+  },
+
+compliment: {
+  lines: [
+    'Another year has gone by,',
+    'But you haven\'t gotten any wiser.',
+    'Oh well...',
+    'Happy birthday 🍾',
+  ],
+  theme: 'another'
+}
+}
+
+// compliment: {
+//   lines: [
+//     'Age may just be a number,',
+//     'But look in the mirror and you\'ll change your mind.',
+//     'Happy birthday! 🎉',
+//   ],
+//   theme: 'age'
+// }
+
+// compliment: {
+//   lines: [
+//     'Smart, good looking and funny.',
+//     'But enough about me...',
+//     'Happy birthday. 🥳',
+//   ],
+//   theme: 'smart'
+// }
+
+// compliment: {
+//   lines: [
+//     'Facebook told me it was your birthday,',
+//     'Happy birthday 🎂',
+//   ],
+//   theme: 'facebook'
+// }
+
+// compliment: {
+//   lines: [
+//     'We know you're growing old,',
+//     'But you'll always be young on the inside',
+//     'Happy birthday 🙏',
+//   ],
+//   theme: 'old'
+// }
+
+// compliment: {
+//   lines: [
+//     'You are cool, amazing and wise,',
+//     'But don't get too excited,',
+//     'I'm only saying all these things because it's your birthday today.',
+//     'Happy birthday 🎁',
+//   ],
+//   theme: 'amazing'
+// }
+
+// compliment: {
+//   lines: [
+//     'Another year has gone by,',
+//     'But you haven't gotten any wiser.,',
+//     'Oh well...',
+//     'Happy birthday 🍾',
+//   ],
+//   theme: 'another'
+// }

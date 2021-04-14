@@ -4,7 +4,7 @@ import { motion } from "framer-motion"
 import Frame from './components/Frame'
 import './App.css';
 
-function App({ to, cc, compliment }) {
+function App({ toName, ccName, theme, lines }) {
   const containerVariants = {
     active: {
       transition: {
@@ -29,7 +29,7 @@ function App({ to, cc, compliment }) {
   }
 
   return (
-    <div className={`App ${compliment.theme}`}>
+    <div className={`App ${theme}`}>
       <Frame>
         <motion.div
           variants={containerVariants}
@@ -39,9 +39,9 @@ function App({ to, cc, compliment }) {
           <motion.h1
             variants={childVariants}
           >
-            Dear <span>{to.name}</span>,
+            Dear <span>{toName}</span>,
           </motion.h1>
-          {compliment.lines.map((line) => (
+          {lines.map((line) => (
             <motion.h1
               variants={childVariants}
             >
@@ -52,7 +52,7 @@ function App({ to, cc, compliment }) {
             variants={childVariants}
           >
             From,<br/>
-            <span>{cc.name}</span>.
+            <span>{ccName}</span>.
           </motion.h1>
           <motion.h2
             variants={childVariants}
@@ -68,16 +68,8 @@ function App({ to, cc, compliment }) {
 export default App;
 
 App.defaultProps = {
-  to: {
-    name: 'James',
-    email: 'james@outfit.io'
-  },
-  cc: {
-    name: 'Georgia',
-    email: 'james.rp.lee@gmail.com'
-  },
-
-compliment: {
+  toName: 'James',
+  ccName: 'John',
   lines: [
     'Another year has gone by,',
     'But you haven\'t gotten any wiser.',
@@ -85,7 +77,6 @@ compliment: {
     'Happy birthday 🍾',
   ],
   theme: 'another'
-}
 }
 
 // compliment: {
